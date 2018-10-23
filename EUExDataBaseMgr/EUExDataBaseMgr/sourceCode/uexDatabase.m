@@ -65,7 +65,15 @@ static NSString *kDatabaseFolderPath = nil;
 }
 
 - (BOOL)open:(NSString *)dbName{
-    NSString *dbPath = [kDatabaseFolderPath stringByAppendingPathComponent:dbName];
+    
+    NSString *dbPath = nil;
+    NSFileManager *fmanager = [NSFileManager defaultManager];
+    if ([fmanager fileExistsAtPath:dbName]) {
+        dbPath = dbName;
+    } else {
+        dbPath = [kDatabaseFolderPath stringByAppendingPathComponent:dbName];
+    }
+    
     if (sqlite3_open([dbPath UTF8String], &_dbHandle) == SQLITE_OK) {
         self.dbName = dbName;
         NSString *label = [@"com.appcan.uexDataBaseMgr.dbQueue." stringByAppendingString:dbName];

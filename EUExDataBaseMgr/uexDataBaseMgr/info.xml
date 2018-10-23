@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <uexplugins>
     <plugin
-        uexName="uexDataBaseMgr" version="4.0.2" build="2">
-        <info>2:修复一个导致app闪退的bug</info>
+        uexName="uexDataBaseMgr" version="4.0.3" build="3">
+        <info>3:增加数据库路径兼容性</info>
+        <build>2:修复一个导致app闪退的bug</build>
         <build>1:支持拷贝预置数据库</build>
         <build>0:数据库功能插件</build>
     </plugin>
